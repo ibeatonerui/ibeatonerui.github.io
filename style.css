@@ -1,0 +1,79 @@
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --meta: #666666;
+    --spacing: 40px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+    padding: var(--spacing);
+    text-transform: uppercase; /* The streetwear look */
+    letter-spacing: -0.02em;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing);
+    font-weight: 700;
+}
+
+nav a { text-decoration: none; color: var(--text); margin-left: 20px; }
+nav a.active { text-decoration: underline; }
+
+/* Hero */
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%); /* Optional: for that archival feel */
+    transition: filter 0.3s ease;
+}
+
+.hero img:hover { filter: grayscale(0%); }
+
+.caption {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--meta);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing);
+    margin-top: var(--spacing);
+}
+
+.grid-item img { width: 100%; height: auto; display: block; }
+.grid-item p { margin-top: 10px; font-size: 0.7rem; font-weight: 600; }
+
+/* Project Detail */
+.project-detail header { margin-bottom: 60px; }
+.project-detail h1 { font-size: 2.5rem; }
+
+.project-block {
+    margin-bottom: 80px;
+}
+
+.project-block img { width: 100%; height: auto; margin-bottom: 20px; }
+
+.project-text {
+    max-width: 600px;
+    font-size: 0.9rem;
+    text-transform: none; /* Descriptions look better in sentence case */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    body { padding: 20px; }
+}
