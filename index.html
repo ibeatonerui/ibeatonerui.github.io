@@ -3,40 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROBERT LI — INDEX</title>
+    <title>ROBERT LI — LOG</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="grain"></div>
+
 <nav>
-    <div class="logo">ROBERT LI</div>
-    <div class="nav-links">
-        <a href="index.html" class="active">WORK</a>
-        <a href="about.html">ABOUT</a>
+    <div class="nav-container">
+        <a href="index.html" class="logo">RL—26</a>
+        <div class="links">
+            <a href="#work">WORK</a>
+            <a href="about.html">INFO</a>
+        </div>
     </div>
 </nav>
 
-<main>
-    <section class="hero">
-        <a href="project-1.html">
-            <img src="hero-image.jpg" alt="Featured Work">
-            <div class="caption">01/ FEATURED PROJECT — 2026</div>
-        </a>
+<header class="hero">
+    <h1 class="reveal-text">Building tools for <br><span>Digital Expression.</span></h1>
+    <p class="sub-header">Independent Game Dev & Technical Designer based in LA.</p>
+</header>
+
+<main id="work">
+    <section class="featured-work">
+        <div class="work-card large">
+            <div class="image-wrapper">
+                <img src="hero-render.jpg" alt="Key Memory">
+            </div>
+            <div class="work-info">
+                <span class="tag">CURRENT PROJECT</span>
+                <h2>KEY MEMORY</h2>
+                <p>A DIY mechanical keyboard building experience with a focus on tactile sound and retro aesthetics.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="grid">
+    <section class="log-grid">
         <div class="grid-item">
-            <a href="project-2.html">
-                <img src="thumb1.jpg" alt="Work">
-                <p>KEY MEMORY / GAME</p>
-            </a>
+            <span class="date">FEB 2026</span>
+            <h3>WEB AR EXPERIMENT</h3>
+            <p>Connecting Unity's Needle Engine to real-time Google Sheets data.</p>
         </div>
         <div class="grid-item">
-            <a href="project-3.html">
-                <img src="thumb2.jpg" alt="Work">
-                <p>AR EXPERIMENT / TECH</p>
-            </a>
+            <span class="date">JAN 2026</span>
+            <h3>LOW-POLY JDM</h3>
+            <p>Exploring PS2-style aesthetics for virtual car culture.</p>
         </div>
     </section>
 </main>
+
+<footer>
+    <p>©2026 ROBERT LI. BUILT WITH INTENT.</p>
+</footer>
 </body>
 </html>
