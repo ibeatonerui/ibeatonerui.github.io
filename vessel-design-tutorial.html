@@ -33,9 +33,10 @@
         <li><a href="vessel-prototype.html#project-vessel-prototyping" id="toc-prototyping">2. PROTOTYPING</a></li>
         <li><a href="vessel-earlyversions.html#project-vessel-prototyping" id="toc-earlyversions">2.
             EarlyVersions</a></li>
-        <li><a href="vessel-design-tutorial.html#project-vessel-design" id="toc-design-tutorial">3. DESIGNING
+        <li><a href="vessel-design-tutorial.html#project-vessel-designtutorial" id="toc-design-tutorial">3. DESIGNING
             TUTORIAL</a></li>
-        <li><a href="vessel-design-charactercontroller.html#project-vessel-design" id="toc-design-CCC">4. DESIGNING
+        <li><a href="vessel-design-charactercontroller.html#project-vessel-designcharactercontroller"
+               id="toc-design-CCC">4. DESIGNING
             CHARACTER
             CONTROLLER</a></li>
         <li><a href="vessel-art.html#project-vessel-art" id="toc-art">4. ART GALLERY</a></li>
@@ -44,38 +45,114 @@
 
 <hr>
 
-<h2 id = "#project-vessel-about">ABOUT</h2>
-<figure>
-    <img src="demo/vessel/image-vessel-coverart.png" />
-    <figcaption aria-hidden="true">#unreal #3D Puzzle Platformer #steam</figcaption>
-</figure>
-<p>Vessel is a 3D puzzle game that invites you to explore the ruins
-    of an ancient civilization that once wielded the power of Water.
-    Guided by a network of static cameras, you'll navigate intricate
-    environments filled with secrets waiting to be uncovered.</p>
-<p>You play as a broken pot, resurrected by a mystical water spirit
-    and granted the extraordinary ability to SWAP-a power that lets
-    your exchange places of the water spirit with pieces in your
-    surroundings. With this newfound ability, embark on a journey
-    to reclaim your missing pieces and unravel the forgotten
-    mysteries of a world shaped by water.</p>
+<h2 id = "#project-vessel-designtutorial">TUTORIAL DESIGN</h2>
+<p>Switching between cameras, using a special swap camera, and combining these mechanics can be a lot to take in at once. That’s why the first few levels serve as a tutorial, breaking down the core concepts:</p>
+<ul>
+    <li>Switch cameras to navigate the space.</li>
+
+    <li>Use the special camera to swap the positions of blue objects.</li>
+
+    <li>The swap only works when both blue objects are visible in the special camera's view.</li>
+</ul>
+<p>These foundational lessons prepare players for the more complex puzzles ahead. </p>
 <hr>
 
-<h2 id="project-vessel-video">VIDEO</h2>
+<h2>TUTORIAL DESIGN - Navigating</h2>
 <figure>
-    <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/nt7xy9GNhiw"
-            title="Vessel Gameplay"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
-    <figcaption aria-hidden="true">
-        <a href="https://www.youtube.com/watch?v=nt7xy9GNhiw">Vessel Gameplay</a>
-    </figcaption>
+    <img src="demo/vessel/Navigation/Design1.jpg" />
 </figure>
+<p>First Design - All cameras in a sequence are looking at the same room</p>
+<p>What works:
+    The player has no trouble associating each camera view and constructing a mental map</p>
+<p>What doesn't work:
+
+    Lacking variation
+
+    Each camera looks at the room from different angles, even though the shape of the rooms could vary, the experience long term feels flat and static.</p>
+
+<figure>
+    <img src="demo/vessel/Navigation/Design2.jpg" />
+</figure>
+<p>Second Design - There are more than 1 room in each camera sequence</p>
+<p>What works:
+
+    Multiple rooms could be connected/disconnected, it gets more challenging to construct a mental map
+
+    Opens up design possibility</p>
+<p>What doesn't work:
+
+    Could be very confusing at first
+
+    The views lacked visual anchors / spatial references, the player gets disoriented
+
+    If the player switches a camera but don't see the player character with in the new view, they immediately gets confused about the space</p>
+
+<figure>
+    <img src="demo/vessel/Navigation/Design3.jpg" />
+    <img src="demo/vessel/Navigation/VisualAnchor1.jpg" />
+    <img src="demo/vessel/Navigation/VisualAnchor2.jpg" />
+</figure>
+<p>Third Design / Modification - There are more than 1 room in each camera sequence, with some visual anchors
+
+</p>
+<p>Successfully mitigated spatial confusion, but he lack of variation in visual anchor / spatial references would still confused the player from time to time
+
+</p>
+<p>The visual anchor is a good design direction, but I need something more unifying, rewarding to help guide the player
+
+</p>
+<hr>
+
+
+<h2>Last Significant Modification - Adding a guidance water ball</h2>
+
+<p>A companion water ball that flies from room too room. The flying path is triggered by the player when they get to certain check points
+</p>
+<p>The player is still navigating through sequence of cameras but with the help of this water ball - a unique element that is visible in most of the camera views, the player could construct a mental map more easily while still be challenged and reward
+</p>
+
+<figure>
+    <img src="demo/vessel/Navigation/Tutorial-Navigation-0.jpg" />
+    <img src="demo/vessel/Navigation/Waterball1.png" />
+    <img src="demo/vessel/Navigation/Waterball2.png" />
+</figure>
+
+<p>Level 1
+</p>
+<p>The ball travels from Room 1, through the middle corridor, to Room 2
+
+    In a straight line
+
+    The ball lands at the entrance of Room 2
+
+    The pathing of the ball is the designed critical path for the player.
+</p>
+
+<figure>
+    <img src="demo/vessel/Navigation/Waterball2.png" />
+    <img src="demo/vessel/Navigation/Waterball3.png" />
+    <img src="demo/vessel/Navigation/Waterball4.png" />
+</figure>
+
+
+<p>Level 2
+</p>
+<p>The water ball flies over an obstacle. The pathing of the water ball is not the designed critical path. Player must find other way to reach the ball. The game prompts the player with instructions on how to switch between cameras again. Player needs to find an alternative path to get to the water ball.
+</p>
+
+<figure>
+    <img src="demo/vessel/Navigation/Tutorial-Navigation-2.jpg" />
+    <img src="demo/vessel/Navigation/Waterball5.png" />
+    <img src="demo/vessel/Navigation/Waterball6.png" />
+    <img src="demo/vessel/Navigation/Waterball7.png" />
+</figure>
+
+
+<p>Level 3
+</p>
+<p>The water ball flies over an obstacle. The pathing of the water ball is not the designed critical path. Player must find other way to reach the ball. In addition to the water ball flying over an obstacle, the camera also breaks the 180 rule. There are visual anchors in the level to aid the player to mentally map out the space.
+</p>
+
 
 <div class="debug-grid"></div>
 <script src="src/index.js"></script>
