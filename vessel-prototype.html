@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Oskar Wickström" />
+    <title>RL - VESSEL - PROTOTYPE</title>
+    <link rel="stylesheet" href="src/reset.css" />
+    <link rel="stylesheet" href="src/index.css" />
+</head>
+<body>
+<table class="header">
+    <tr>
+        <td colspan="2" rowspan="2" class="width-auto">
+            <h1 class="title"><a href = "https://therobertli.com/">ROBERT LI</a> >>> VESSEL</h1>
+            <span class="subtitle">technical game designer</span>
+        </td>
+        <td colspan="2" class ="width-auto"><a href="https://robertli.itch.io/">LinkedIn</a></td>
+        <!--    <td class="width-min">v0.1.5</td>-->
+    </tr>
+    <tr>
+        <td colspan="2" class ="width-auto"><a href="https://robertli.itch.io/">Discord</a></td>
+        <!--    <td class="width-min"><time style="white-space: pre;">2025-08-20</time></td>-->
+    </tr>
+</table>
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle" /> Debug mode</label>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Contents</h2>
+    <ul class="incremental">
+        <li><a href="vessel.html#project-vessel-about" id="toc-about">1. ABOUT</a></li>
+        <li><a href="vessel.html#project-vessel-video" id="toc-video">1. VIDEO</a></li>
+        <li><a href="vessel-prototype.html#project-vessel-prototyping" id="toc-prototyping">2. PROTOTYPING</a></li>
+        <li><a href="vessel-earlyversions.html#project-vessel-prototyping" id="toc-earlyversions">2.
+            EarlyVersions</a></li>
+        <li><a href="vessel-design-tutorial.html#project-vessel-design" id="toc-design-tutorial">3. DESIGNING
+            TUTORIAL</a></li>
+        <li><a href="vessel-design-charactercontroller.html#project-vessel-design" id="toc-design-CCC">4. DESIGNING
+            CHARACTER
+            CONTROLLER</a></li>
+        <li><a href="vessel-art.html#project-vessel-art" id="toc-art">4. ART GALLERY</a></li>
+    </ul>
+</nav>
+
+<hr>
+
+<h2 id = "#project-vessel-prototyping-inspo">PROTOTYPING - INSPO</h2>
+<p>I've always found inspiration in the unexpected dialogue
+    between design and exploration. While browsing architectural
+    monographs in cozy coffee shops and chic boutiques, I’d get
+    lost in the visual stories of unique spaces. As I studied each
+    design, I would imagine myself wandering through them—moving
+    fluidly from one striking locale to another, occasionally veering
+    off course to uncover hidden details.</p>
+<p>In those moments, I realized I was mentally mapping out these environments, creating a personal blueprint of discovery. That spark of insight led me to create a game that captures this very journey, inviting you to explore and navigate through spaces as you’ve never experienced before.</p>
+<hr>
+
+<h2 id = "#project-vessel-prototyping-basics-1">PROTOTYPING-BASICS-i</h2>
+<p>To test the potential of this vision, I built my very first prototype. My plan was to present players with a series of carefully chosen static shots and simplified room layouts that capture the essence of each space. The challenge? First, to mentally map out the environment and then accurately recreate that layout using an intuitive map interface.</p>
+<p>In those moments, I realized I was mentally mapping out these environments, creating a personal blueprint of discovery. That spark of insight led me to create a game that captures this very journey, inviting you to explore and navigate through spaces as you’ve never experienced before.</p>
+
+<h2 id = "#project-vessel-prototyping-basics-2">PROTOTYPING-BASICS-ii</h2>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>On the left, a live camera feed immerses you in the environment, capturing every detail in real time. On the right, an interactive map awaits your input—inviting you to plot and reconstruct the layout of the spaces you observe. This split-screen design seamlessly connects real-time exploration with strategic mapping, turning every moment into a dynamic challenge.</p>
+
+<h2 id = "#project-vessel-prototyping-basics-3">PROTOTYPING-BASICS-iii</h2>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>Players can explore different areas by switching between multiple cameras. As you toggle your view, the interactive map updates in real time: a yellow box frames the room corresponding to the active camera, clearly indicating your current perspective.</p>
+
+<h2 id = "#project-vessel-prototyping-basics-4">PROTOTYPING-BASICS-iv</h2>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>A subtle light in front of your character signals the direction they’re facing, setting the stage for spatial discovery. By toggling between two cameras, you can discern the spatial relationship between each camera’s position and the corresponding rooms. Then, by dragging the red box—representing the second room—on the interactive map to its proper place, you complete the layout. Once the map is accurate, the door opens, and you progress to the next stage of your journey.</p>
+
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>This is the layout of the 2 rooms.</p>
+
+<hr>
+
+<h2 id = "#project-vessel-prototyping-moreindepth">PROTOTYPING - MORE IN DEPTH</h2>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>In later levels, the challenge intensifies. To map the rooms, players must focus on the details—paying close attention to the shapes and positioning of lights. These elements provide the clues needed to understand the layout and continue progressing. for a couple of seconds</p>
+<p>n later levels, players must scrutinize details—especially light patterns and shapes—to accurately map each room.</p>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>Camera 1: An empty room bathed in red light. A vertical crack runs along the left wall, while a horizontal crack marks the right.</p>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>Camera 2 & 3: In these views, you see two additional rooms. In room 1, the red light projects vertically, while in
+    room 2 it spills horizontally. Your challenge is to connect:</p>
+<ul class="incremental">
+    <li>The red light in the main room with its corresponding projection in each room.</li>
+    <li>The shape of the cracks in the main room with the form of the light spills in the other rooms.</li>
+</ul>
+<figure>
+    <img src="demo/vessel/Prototyping/Prototyping_1_AbouttheMap.gif" />
+</figure>
+<p>This is the layout of the 3 rooms.</p>
+
+<hr>
+
+<h2 id = "#project-vessel-prototyping-discovery">PROTOTYPING - DISCOVERY</h2>
+<p>After extensive playtesting, I identified two major issues with the prototype. First, players felt they lacked meaningful actions—it ended up feeling more like an architectural exam than a game. Second, the primary objective and the use of the interactive map weren’t clearly communicated.</p>
+
+<p>In puzzle games, knowing what to do and how to do it is crucial. On the positive side, playtesters loved scanning through multiple cameras, uncovering hidden parts of the space, and watching the character emerge in unexpected rooms. These insights have given me a clear direction, and I’m excited to iterate and refine the experience further.</p>
+
+
+<div class="debug-grid"></div>
+<script src="src/index.js"></script>
+</body>
+</html>
