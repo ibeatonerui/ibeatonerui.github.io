@@ -33,9 +33,10 @@
         <li><a href="vessel-prototype.html#project-vessel-prototyping" id="toc-prototyping">2. PROTOTYPING</a></li>
         <li><a href="vessel-earlyversions.html#project-vessel-prototyping" id="toc-earlyversions">2.
             EarlyVersions</a></li>
-        <li><a href="vessel-design-tutorial.html#project-vessel-design" id="toc-design-tutorial">3. DESIGNING
+        <li><a href="vessel-design-tutorial.html#project-vessel-designtutorial" id="toc-design-tutorial">3. DESIGNING
             TUTORIAL</a></li>
-        <li><a href="vessel-design-charactercontroller.html#project-vessel-design" id="toc-design-CCC">4. DESIGNING
+        <li><a href="vessel-design-charactercontroller.html#project-vessel-designcharactercontroller" 
+               id="toc-design-CCC">4. DESIGNING
             CHARACTER
             CONTROLLER</a></li>
         <li><a href="vessel-art.html#project-vessel-art" id="toc-art">4. ART GALLERY</a></li>
@@ -44,38 +45,64 @@
 
 <hr>
 
-<h2 id = "#project-vessel-about">ABOUT</h2>
+<h2 id = "#project-vessel-designcharactercontroller">CHARACTER CONTROLLER - The Problem</h2>
 <figure>
-    <img src="demo/vessel/image-vessel-coverart.png" />
-    <figcaption aria-hidden="true">#unreal #3D Puzzle Platformer #steam</figcaption>
+    <img src="demo/vessel/CharacterController/CharacterControllerVector.gif" />
 </figure>
-<p>Vessel is a 3D puzzle game that invites you to explore the ruins
-    of an ancient civilization that once wielded the power of Water.
-    Guided by a network of static cameras, you'll navigate intricate
-    environments filled with secrets waiting to be uncovered.</p>
-<p>You play as a broken pot, resurrected by a mystical water spirit
-    and granted the extraordinary ability to SWAP-a power that lets
-    your exchange places of the water spirit with pieces in your
-    surroundings. With this newfound ability, embark on a journey
-    to reclaim your missing pieces and unravel the forgotten
-    mysteries of a world shaped by water.</p>
-<hr>
+<p>There are many instances in the game where the player need to either:
+    maintain walking in a straight line after a camera switch, and
+    slightly maneuver the direction after a camera switch</p>
+<p>In the early version of the game, the forward vector of the player character would immediately update after camera switches. </p>
+<p>Imagine two cameras facing each other. Let's say the player is walking away from camera one, and they decide to switch to camera two. The player forward camera would immediately switch to the forward vector of the new camera. </p>
+<p>The gif above demonstrates the issue.</p>
+<p>It's not a severe problem, the game would still be playable without improving the player controller.
+</p>
+<p>But the fluidity of the game feel would be compromised if I don't address it and find a clever solution.
 
-<h2 id="project-vessel-video">VIDEO</h2>
+</p>
+
+<h2>CHARACTER CONTROLLER - My Solution</h2>
+<p>The first step to solve this issue is to identify when exactly does the player forward vector need to be updated:</p>
+<ul class="incremental">
+    <li>If the player character is not moving, and the camera is switched, then the game should immediately update the player forward vector</li>
+    <li>If the player switch to a new camera while the player character is moving
+    <ul>
+        <li>if the player character is not turning, maintain the old forward vector</li>
+        <li>if the player character is turning, the game should update the forward vector</li>
+    </ul>
+    </li>
+</ul>
+
+
 <figure>
-    <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/nt7xy9GNhiw"
-            title="Vessel Gameplay"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
-    <figcaption aria-hidden="true">
-        <a href="https://www.youtube.com/watch?v=nt7xy9GNhiw">Vessel Gameplay</a>
-    </figcaption>
+    <img src="demo/vessel/CharacterController/CharacterController1.jpg" />
 </figure>
+<h2>Camera Forward</h2>
+<p>The forward vector of each camera, this is the vector that will become the forward vector of the player character depending on which camera the player is looking at</p>
+<h2>PlayerForward</h2>
+<p>This vector determines which direction is forward with respect to the camera position.</p>
+<h2>StickDirection</h2>
+<p>This is the input vector. This vector gets translated into movement based on the PlayerForward vector.</p>
+
+
+
+<figure>
+    <img src="demo/vessel/CharacterController/CharacterController2.jpg" />
+</figure>
+<p>When the player switch to a new camera, depending on the following two things, the game will then decide whether to update the PlayerForward or not:</p>
+<ul>
+    <li>Whether the player is moving at all</li>
+    <li>Is the player trying to turn</li>
+</ul>
+
+
+<figure>
+    <img src="demo/vessel/CharacterController/CharacterController3.jpg" />
+</figure>
+<p>When the player switches to a new camera, and the player character is moving, the game starts to check if the dot product of the stickDirection and playerForward exceeds a threshold.</p>
+<p>If the dot product exceeds the threshold, then the game would lerp the old playerForward vector to the new cameraForward vector.</p>
+
+<hr>
 
 <div class="debug-grid"></div>
 <script src="src/index.js"></script>
