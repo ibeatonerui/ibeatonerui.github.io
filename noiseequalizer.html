@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Oskar Wickström" />
+    <title>RL - NOISE EQUALIZER</title>
+    <link rel="stylesheet" href="src/reset.css" />
+    <link rel="stylesheet" href="src/index.css" />
+</head>
+<body>
+<table class="header">
+    <tr>
+        <td colspan="2" rowspan="2" class="width-auto">
+            <h1 class="title"><a href = "https://therobertli.com/">ROBERT LI</a> > <a href = 
+                                                                                              "https://therobertli.com/noiseequalizer.html">
+                NOISE EQUALIZER</a></h1>
+            <span class="subtitle">technical game designer</span>
+        </td>
+        <td colspan="2" class ="width-auto"><a href="https://robertli.itch.io/">LinkedIn</a></td>
+        <!--    <td class="width-min">v0.1.5</td>-->
+    </tr>
+    <tr>
+        <td colspan="2" class ="width-auto"><a href="https://robertli.itch.io/">Discord</a></td>
+        <!--    <td class="width-min"><time style="white-space: pre;">2025-08-20</time></td>-->
+    </tr>
+</table>
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle" checked /> Debug mode</label>
+
+<h2>LINK TO <a href="https://www.taptap.cn/app/210518">TAPTAP</a></h2>
+
+<h2>ABOUT</h2>
+<figure>
+    <img src="demo/ne/image-ne-coverart.webp" />
+</figure>
+<p>Noise Equalizer - Ukiyo is a rhythm game launching on iOS and ipadOS.
+
+</p>
+<p>The story sets in the Spark region of East Asia in the year 2096. At that time, a plethora of technologies such as data alchemy, fusion engines, and three-dimensional cities brought unprecedented enjoyment and comfort to urban humans at the end of the 21st century.
+
+</p>
+
+
+<p>With a desire for ancient ruins and a disdain for mundane daily life, two girls, Momoya and Sue, break away from ordinary city life and embark on a series of science fiction adventures, meeting various people along the way.
+
+
+
+</p>
+<p>In addition to dealing with the harsh urban environment and the threat of armed groups, they also need to filter out the "noise" unique to the information explosion of that era to maintain their self-will. With their lipstick and confusion left behind, the journey has already begun...
+
+
+
+</p>
+<hr>
+<h2>CHALLENGES</h2>
+<figure>
+    <img src="demo/ne/image-ne-gameplay.png" />
+</figure>
+<p>Challenge 1: Performance Issues
+
+    During testing, we discovered that the game would crash on some of the older devices due to the lack of optimization on the game assets since we have many Cyberpunk style animations and effects. With the usage of Unity Memory Profiler, I was able to work with the artist to minimize the memory usage of the effects and animations.
+</p>
+<p>Challenge 2: Developing Tools for Composers
+
+    We didn't want our composers to get on Unity in order to design their note patterns for their songs. So we developed a note patter editor tool with PyQT. The tool exports both .json and .txt styles of note patter info and I was able to serialize them in C# and convert them into note in game play.
+
+</p>
+
+<div class="debug-grid"></div>
+<script src="src/index.js"></script>
+</body>
+</html>
