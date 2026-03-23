@@ -285,6 +285,50 @@ li::marker {
   line-height: 0;
 }
 
+/* TOC Menu Styling */
+nav#TOC ul.incremental {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+nav#TOC li {
+  margin-bottom: 0.5rem;
+}
+
+nav#TOC li a {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+  width: 100%;
+  color: var(--text-color);
+}
+
+.project-title {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.project-leader {
+  flex-grow: 1;
+  border-bottom: 2px dotted var(--text-color);
+  margin: 0 1ch;
+  position: relative;
+  top: -4px; /* Adjust to align with text baseline */
+}
+
+.project-keywords {
+  flex-shrink: 0;
+  color: var(--text-color-alt);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media screen and (max-width: 600px) {
+  .project-keywords {
+    display: none; /* Hide keywords on very small screens to save space */
+  }
+}
+
 ::-webkit-scrollbar {
     height: var(--line-height);
 }
@@ -306,6 +350,7 @@ input, button, textarea {
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 input[type=checkbox],
